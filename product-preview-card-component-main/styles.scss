@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+$green500: hsl(158, 36%, 37%);
+$green700: hsl(158, 42%, 18%);
+$black: hsl(212, 21%, 14%);
+$grey: hsl(228, 12%, 48%);
+$cream: hsl(30, 38%, 92%);
+$white: hsl(0, 0%, 100%);
+$font-primary: "Montserrat", sans-serif;
+$font-accent: "Fraunces", serif;
+$desktop: 1440px;
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $cream;
+  @include flex-center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.card_container {
+  display: grid;
+  background-color: white;
+  margin: 3em 1em;
+  border-radius: 0.5em;
+  max-width: 350px;
+  @media (min-width: $desktop) {
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 1fr;
+    max-height: 600px;
+    max-width: 600px;
+  }
+}
+
+.img_container {
+  background: url("./images/image-product-mobile.jpg") center/cover;
+  width: 100%;
+  height: 350px;
+  border-radius: 10px 10px 0 0;
+  @media (min-width: $desktop) {
+    background: url("./images/image-product-desktop.jpg") center/cover no-repeat;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px 0 0 10px;
+  }
+}
+
+.text_container {
+  display: grid;
+  grid-template-rows: repeat(5, auto);
+  padding: 2rem;
+  gap: 1rem;
+}
+
+.perfume {
+  font-family: $font-primary;
+  color: $grey;
+  font-size: 0.75rem;
+  letter-spacing: 5px;
+}
+
+.product_name {
+  font-family: $font-accent;
+  color: $black;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.description {
+  font-family: $font-primary;
+  color: $grey;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.price_container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.current_price {
+  font-family: $font-accent;
+  color: $green500;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.original_price {
+  font-family: $font-primary;
+  color: $grey;
+  font-size: 0.75rem;
+  text-decoration: line-through;
+}
+
+.add_to_cart {
+  background-color: $green500;
+  padding: 1rem;
+  border-radius: 0.5em;
+  border: none;
+  color: $white;
+  display: flex;
+  @include flex-center;
+  gap: 0.5rem;
+  font-weight: 700;
+}
+
+.add_to_cart:hover {
+  background-color: $green700;
+  cursor: pointer;
+}
