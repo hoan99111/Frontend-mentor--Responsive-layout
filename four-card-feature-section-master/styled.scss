@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;600&display=swap");
+
+$red: hsl(0, 78%, 62%);
+$cyan: hsl(180, 62%, 55%);
+$orange: hsl(34, 97%, 64%);
+$blue: hsl(212, 86%, 64%);
+$grey-500: hsl(234, 12%, 34%);
+$grey-400: hsl(212, 6%, 44%);
+$white: hsl(0, 0%, 100%);
+$font-primary: "Poppins", serif;
+$desktop: 1440px;
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.5;
+  font-size: 15px;
+}
+
+.container {
+  @include flex-center;
+  flex-direction: column;
+  font-family: $font-primary;
+  padding: 2rem;
+  gap: 3rem;
+  color: $grey-500;
+}
+
+.text-container {
+  text-align: center;
+
+  .header {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    font-weight: 600;
+  }
+
+  .title {
+    font-weight: 200;
+  }
+
+  .sub-header {
+    color: $grey-500;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    font-weight: 200;
+  }
+
+  @media (min-width: $desktop) {
+    max-width: 600px;
+    .header {
+      font-size: 2.5rem;
+    }
+    .sub-header {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.box-container {
+  @media (min-width: $desktop) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cột */
+    grid-template-rows: auto auto; /* 2 hàng */
+    gap: 2rem;
+    max-width: 1000px;
+    margin: auto;
+    padding: 2rem;
+
+    .supervisor {
+      grid-column: 1 / 2;
+      grid-row: 1 / 3; /* chiếm 2 hàng để căn giữa */
+      align-self: center;
+    }
+
+    /* Team Builder ở trên giữa */
+    .team {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+    }
+
+    /* Karma ở dưới giữa */
+    .karma {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+    }
+
+    /* Calculator ở cột 3, căn giữa theo hàng */
+    .calculator {
+      grid-column: 3 / 4;
+      grid-row: 1 / 3;
+      align-self: center;
+    }
+  }
+}
+
+.box {
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border-top: 4px solid $cyan;
+  border-radius: 8px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 16px 40px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 14px;
+    font-weight: 400;
+    color: $grey-500;
+  }
+
+  .img-container {
+    justify-self: end;
+    padding: 1rem 0;
+  }
+}
+
+.team-builder {
+  border-top: 4px solid $red;
+}
+
+.karma {
+  border-top: 4px solid $orange;
+}
+
+.calculator {
+  border-top: 4px solid $blue;
+}
